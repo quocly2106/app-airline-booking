@@ -47,6 +47,9 @@ public class SecurityConfig {
                         .requestMatchers("/staffs/**","services/**").hasRole("ADMIN")
                         .requestMatchers("/feedbacks/**").hasAnyRole("CUSTOMER")
                         .requestMatchers("/customers/**","/planes/**").hasAnyRole("ADMIN","STAFF")
+                        .requestMatchers("/seats/add", "/seats/delete/{id}", "/seats/update/{seatId}/status/{status}","seats/delete/flight/{flightId}").hasRole("ADMIN")
+                        .requestMatchers("/seats/all", "/seats/{id}", "/seats/status/{status}", "/seats/type/{type}", "/seats/flight/{flightId}").hasAnyRole("ADMIN", "STAFF")
+                        .requestMatchers("/seats/cancel/{seatId}").hasAnyRole("ADMIN", "STAFF", "CUSTOMER")
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session

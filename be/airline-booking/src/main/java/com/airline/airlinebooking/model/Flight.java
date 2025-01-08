@@ -1,5 +1,6 @@
 package com.airline.airlinebooking.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -36,6 +37,7 @@ public class Flight {
     private String arrivalTime;
 
     @OneToMany(mappedBy = "flight", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
     private Set<Seat> seats;
 
     @Column(nullable = false)
