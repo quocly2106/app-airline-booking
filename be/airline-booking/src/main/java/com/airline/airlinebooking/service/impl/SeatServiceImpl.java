@@ -68,7 +68,7 @@ public class SeatServiceImpl implements SeatService {
     }
 
     @Override
-    public List<Seat> getSeatsByStatus(SeatStatus  status) {
+    public List<Seat> getSeatsByStatus(SeatStatus status) {
         return seatRepository.findByStatus(status);
     }
 

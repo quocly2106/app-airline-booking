@@ -49,6 +49,8 @@ public class SecurityConfig {
                         .requestMatchers("/customers/**","/planes/**").hasAnyRole("ADMIN","STAFF")
                         .requestMatchers("/seats/add", "/seats/delete/{id}", "/seats/update/{seatId}/status/{status}","seats/delete/flight/{flightId}").hasRole("ADMIN")
                         .requestMatchers("/seats/all", "/seats/{id}", "/seats/status/{status}", "/seats/type/{type}", "/seats/flight/{flightId}").hasAnyRole("ADMIN", "STAFF")
+                        .requestMatchers("/airports/add","/airports//delete/{id}","/airports/update/{id}").hasRole("ADMIN")
+                        .requestMatchers("/airports/search", "/airports/update/{id}/status", "/airports/status").hasAnyRole("ADMIN", "STAFF")
                         .requestMatchers("/seats/cancel/{seatId}").hasAnyRole("ADMIN", "STAFF", "CUSTOMER")
                         .anyRequest().authenticated()
                 )

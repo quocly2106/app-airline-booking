@@ -4,6 +4,7 @@ import com.airline.airlinebooking.dto.PlaneDto;
 import com.airline.airlinebooking.exception.ResourceNotFoundException;
 import com.airline.airlinebooking.model.Admin;
 import com.airline.airlinebooking.model.Plane;
+import com.airline.airlinebooking.model.PlaneStatus;
 import com.airline.airlinebooking.repository.AdminRepository;
 import com.airline.airlinebooking.repository.PlaneRepository;
 import com.airline.airlinebooking.service.PlaneService;
@@ -47,7 +48,7 @@ public class PlaneServiceImpl implements PlaneService {
         existingPlane.setAirline(planeDto.getAirline());
         existingPlane.setCapacity(planeDto.getCapacity());
         existingPlane.setManufacture(planeDto.getManufacture());
-        existingPlane.setStatus(planeDto.getStatus());
+        existingPlane.setStatus(PlaneStatus.valueOf(planeDto.getStatus()));
 
         // Lưu lại plane đã cập nhật
         return planeRepository.save(existingPlane);
@@ -79,7 +80,7 @@ public class PlaneServiceImpl implements PlaneService {
         plane.setAirline(planeDto.getAirline());
         plane.setCapacity(planeDto.getCapacity());
         plane.setManufacture(planeDto.getManufacture());
-        plane.setStatus(planeDto.getStatus());
+        plane.setStatus(PlaneStatus.valueOf(planeDto.getStatus()));
         return plane;
     }
 

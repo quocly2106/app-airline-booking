@@ -19,7 +19,7 @@ public class PlaneDto {
     private String nation;
     @NotBlank(message = "Airline is required")
     private String airline;
-    @NotNull(message = "Capacity is required")
+    @NotNull(message = "Capacity cannot be null")
     @Min(value = 1, message = "Capacity must be greater than 0")
     private Integer capacity;
 

@@ -24,7 +24,8 @@ public class Airport {
     private String location;
 
     @Column(nullable = false)
-    private String status;
+    @Enumerated(EnumType.STRING)
+    private AirportStatus status;
 
     @OneToMany(mappedBy = "departureAirport", cascade = CascadeType.ALL)
     private Set<Flight> departureFlights;

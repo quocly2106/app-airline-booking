@@ -28,7 +28,8 @@ public class Plane {
     @Column(nullable = false)
     private Integer  manufacture;
     @Column(nullable = false)
-    private String status;
+    @Enumerated(EnumType.STRING)
+    private PlaneStatus status;
     @OneToMany(mappedBy = "plane", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Flight> flights;
 

@@ -11,7 +11,7 @@ public interface SeatService {
 
     void deleteSeat(Long id);
 
-    Seat updateStatusSeat (Long seatId ,  String status);
+    Seat updateStatusSeat (Long seatId , String status);
 
     Seat cancelSeatBooking(Long seatId);
 

@@ -44,7 +44,8 @@ public class Flight {
     private Double price;
 
     @Column(nullable = false)
-    private String status;
+    @Enumerated(EnumType.STRING)
+    private FlightStatus status;
 
     @Column(nullable = false)
     private String createdAt;
